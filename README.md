@@ -87,7 +87,7 @@ gpu_id = 0
 
 Execute:
 
-python SMVIB_main.py
+python TCDA.py
 
 This will automatically:
 
@@ -121,8 +121,8 @@ TCDA_2026_imp/
 Directory structure:
 
 TCDA_2026_imp/
-├── BASE_*/
-├── TCDA_*/
+├── BASE_/
+├── TCDA_/
 │     ├── metrics/
 │     ├── curves/
 │     ├── gradcam/
