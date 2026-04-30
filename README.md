@@ -183,9 +183,15 @@ Running the script reproduces all reported results.
 
 Experiments were conducted on a Dell Alienware m16 laptop with:
 
-* GPU: NVIDIA GeForce RTX [model] ([VRAM] GB)
-* CPU: Intel Core [exact model name]
-* RAM: [amount] GB
+* GPU: NVIDIA GeForce RTX [4060] ([8] GB)
+* CPU: Intel Core [Intel Core Ultra 9 185H ]
+* RAM: [16] GB
+
+Addtional Support (HPC):
+
+* NVIDIA H200 GPUs (HPC cluster)
+
+
 
 Training was performed using CUDA-enabled PyTorch.
 
