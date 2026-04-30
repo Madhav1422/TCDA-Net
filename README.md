@@ -137,17 +137,25 @@ TCDA_2026_imp/
 
 Structure:
 
+## Output Structure
+
+```
 TCDA_2026_imp/
-BASE_*/
-TCDA_*/
-metrics/
-curves/
-gradcam/
-all_results.csv
-summary_aggregated.csv
-wilcoxon_n.csv
-mcnemar_pooled.csv
-superiority_table.csv
+    BASE_*/
+        metrics/
+        curves/
+        gradcam/
+    TCDA_*/
+        metrics/
+        curves/
+        gradcam/
+    all_results.csv
+    summary_aggregated.csv
+    wilcoxon_n.csv
+    mcnemar_pooled.csv
+    superiority_table.csv
+```
+
 
 Generated results:
 
