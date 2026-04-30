@@ -35,12 +35,14 @@ Two different datasets are used.
 
 Training dataset:
 
-* Source: Kaggle Brain Tumor MRI dataset
-* Link: https://www.kaggle.com/datasets/mohamadabouali1/mri-brain-tumor-dataset-4-class-7023-images
+ Source: Kaggle Brain Tumor MRI dataset
+ Link: https://www.kaggle.com/datasets/mohamadabouali1/mri-brain-tumor-dataset-4-class-7023-images
+
+
 Testing dataset:
 
-* Source: Mendeley Brain Tumor dataset
-* Link: https://data.mendeley.com/datasets/zwr4ntf94j/1
+ Source: Mendeley Brain Tumor dataset
+ Link: https://data.mendeley.com/datasets/zwr4ntf94j/1
 
 This setup is intentional and evaluates cross-dataset generalisation.
 
@@ -93,20 +95,20 @@ This will automatically:
 
 1. Train all models:
 
-   * BASE_{ResNet50, DenseNet121, MobileNetV3L, ConvNeXtTiny}
-   * TCDA_{ResNet50, DenseNet121, MobileNetV3L, ConvNeXtTiny}
+    BASE_{ResNet50, DenseNet121, MobileNetV3L, ConvNeXtTiny}
+    TCDA_{ResNet50, DenseNet121, MobileNetV3L, ConvNeXtTiny}
 
 2. Use fixed seeds:
 
-   * 42, 43, 44, 45, 46
+    42, 43, 44, 45, 46
 
 3. Perform:
 
-   * Training and validation
-   * Test inference
-   * GradCAM generation
-   * Metric computation
-   * Statistical testing (Wilcoxon, McNemar)
+   Training and validation
+    Test inference
+    GradCAM generation
+    Metric computation
+    Statistical testing (Wilcoxon, McNemar)
 
 No additional scripts are required.
 
@@ -134,12 +136,12 @@ TCDA_2026_imp/
 
 Generated results include:
 
-* Accuracy, F1-score, Precision, Recall, AUC
-* Confusion matrices (CSV and PNG)
-* ROC curves (CSV and PNG)
-* Training curves
-* GradCAM visualisations
-* Statistical comparisons
+ Accuracy, F1-score, Precision, Recall, AUC
+ Confusion matrices (CSV and PNG)
+ ROC curves (CSV and PNG)
+ Training curves
+ GradCAM visualisations
+ Statistical comparisons
 
 ---
 
@@ -147,10 +149,10 @@ Generated results include:
 
 The experiments are fully reproducible:
 
-* Fixed seeds: 42, 43, 44, 45, 46
-* Deterministic PyTorch configuration enabled
-* Identical preprocessing and augmentation pipeline
-* All model configurations defined within a single script
+ Fixed seeds: 42, 43, 44, 45, 46
+ Deterministic PyTorch configuration enabled
+ Identical preprocessing and augmentation pipeline
+ All model configurations defined within a single script
 
 Running the script once reproduces all reported results.
 
@@ -158,22 +160,28 @@ Running the script once reproduces all reported results.
 
 ## 9. Hardware Requirements
 
-* GPU recommended (NVIDIA CUDA-supported)
-* Minimum: 8 GB VRAM (for batch size = 16)
+ GPU recommended (NVIDIA CUDA-supported)
+ Minimum: 8 GB VRAM (for batch size = 16)
 
 Approximate runtime:
 
-* Several hours depending on GPU capability
-* Full run includes all models and seeds
+ ## Runtime
+
+The full experimental run (all models across all seeds) requires approximately 4 days on the specified hardware.
+
+Runtime may vary depending on GPU capability.
+
+A single model run (one seed) typically takes several hours.
+
 
 ---
 
 ## 10. Notes
 
-* Only dataset paths need modification before execution
-* No manual intervention is required after starting the script
-* Ensure correct folder naming and class labels
-* Outputs are automatically saved and organised
+Only dataset paths need modification before execution
+ No manual intervention is required after starting the script
+ Ensure correct folder naming and class labels
+ Outputs are automatically saved and organised
 
 ---
 
@@ -189,8 +197,8 @@ If you use this code, cite:
 
 For issues related to reproduction, ensure:
 
-* Dataset structure matches Section 4
-* Paths are correctly set
-* Dependencies are installed
+ Dataset structure matches Section 4
+ Paths are correctly set
+ Dependencies are installed
 
 No additional configuration is required beyond what is described above.
