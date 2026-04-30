@@ -53,21 +53,23 @@ This setup evaluates cross-dataset generalisation.
 Organise the data exactly as follows:
 
 `
+## 4. Dataset Structure
+
+Organise the data exactly as follows:
+
+```
 Training/
-├── glioma/
-├── meningioma/
-├── pituitary/
-└── notumor/
+    glioma/
+    meningioma/
+    pituitary/
+    notumor/
 
 Test/
-├── glioma/
-├── meningioma/
-├── pituitary/
-└── notumor/
-`
-
-
----
+    glioma/
+    meningioma/
+    pituitary/
+    notumor/
+```
 
 ## 5. Configuration
 
