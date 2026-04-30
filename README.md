@@ -52,7 +52,7 @@ This setup evaluates cross-dataset generalisation.
 
 Organise the data exactly as follows:
 
-```
+`
 Training/
 ├── glioma/
 ├── meningioma/
@@ -64,7 +64,7 @@ Test/
 ├── meningioma/
 ├── pituitary/
 └── notumor/
-```
+`
 
 
 ---
