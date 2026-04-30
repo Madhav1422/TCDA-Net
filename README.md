@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-This repository implements TCDA-Net  for brain tumour classification using MRI images.
+This repository implements TCDA-Net for brain tumour classification using MRI images.
 
 Classes:
 
@@ -11,7 +11,7 @@ Classes:
 * pituitary
 * notumor
 
-The framework evaluates both baseline CNN backbones and their TCDA-enhanced variants across multiple random seeds, with full statistical analysis.
+The framework evaluates baseline CNN backbones and their TCDA-enhanced variants across multiple random seeds with statistical analysis.
 
 ---
 
@@ -24,33 +24,31 @@ Tested configuration:
 * CUDA-enabled GPU (recommended)
 
 Install dependencies:
-
 pip install torch torchvision timm numpy pandas matplotlib seaborn scikit-learn scipy
 
 ---
 
 ## 3. Dataset
 
-Two different datasets are used.
+Two datasets are used.
 
 Training dataset:
 
- Source: Kaggle Brain Tumor MRI dataset
- Link: https://www.kaggle.com/datasets/mohamadabouali1/mri-brain-tumor-dataset-4-class-7023-images
-
+* Source: Kaggle Brain Tumor MRI dataset
+* Link: https://www.kaggle.com/datasets/mohamadabouali1/mri-brain-tumor-dataset-4-class-7023-images
 
 Testing dataset:
 
- Source: Mendeley Brain Tumor dataset
- Link: https://data.mendeley.com/datasets/zwr4ntf94j/1
+* Source: Mendeley Brain Tumor dataset
+* Link: https://data.mendeley.com/datasets/zwr4ntf94j/1
 
-This setup is intentional and evaluates cross-dataset generalisation.
+This setup evaluates cross-dataset generalisation.
 
 ---
 
 ## 4. Dataset Structure
 
-Organise the data exactly as follows:
+Organise data exactly as follows:
 
 Training/
 glioma/
@@ -64,8 +62,6 @@ meningioma/
 pituitary/
 notumor/
 
-Each class folder must contain the corresponding MRI images.
-
 ---
 
 ## 5. Configuration
@@ -73,7 +69,7 @@ Each class folder must contain the corresponding MRI images.
 Open `TCDA.py` and update:
 
 ```python
-TRAIN_PATH = "path_to/Training/"   
+TRAIN_PATH = "path_to/Training/"
 TEST_PATH  = "path_to/Test/"
 ```
 
@@ -87,85 +83,100 @@ gpu_id = 0
 
 ## 6. Running the Experiments
 
-Execute:
-
+Run:
 python TCDA.py
 
-This will automatically:
+This will:
 
-1. Train all models:
+1. Train models:
 
-    BASE_{ResNet50, DenseNet121, MobileNetV3L, ConvNeXtTiny}
-    TCDA_{ResNet50, DenseNet121, MobileNetV3L, ConvNeXtTiny}
+   * BASE_{ResNet50, DenseNet121, MobileNetV3L, ConvNeXtTiny}
+   * TCDA_{ResNet50, DenseNet121, MobileNetV3L, ConvNeXtTiny}
 
-2. Use fixed seeds:
+2. Use seeds:
 
-    42, 43, 44, 45, 46
+   * 42, 43, 44, 45, 46
 
 3. Perform:
 
-   Training and validation
-    Test inference
-    GradCAM generation
-    Metric computation
-    Statistical testing (Wilcoxon, McNemar)
+   * Training and validation
+   * Test inference
+   * GradCAM generation
+   * Metric computation
+   * Statistical testing (Wilcoxon, McNemar)
 
 No additional scripts are required.
 
 ---
 
-## 7. Outputs
+## 7. Quick Verification (Optional)
+
+To reduce runtime, modify:
+
+```python
+SEEDS = [42]
+MODELS = ["TCDA_ResNet50"]
+```
+
+This runs a minimal configuration for validation.
+
+---
+
+## 8. Outputs
 
 All outputs are saved in:
 
 TCDA_2026_imp/
 
-Directory structure:
+Structure:
 
 TCDA_2026_imp/
-├── BASE_/
-├── TCDA_/
-│     ├── metrics/
-│     ├── curves/
-│     ├── gradcam/
-├── all_results.csv
-├── summary_aggregated.csv
-├── wilcoxon_n.csv
-├── mcnemar_pooled.csv
-├── superiority_table.csv
+BASE_*/
+TCDA_*/
+metrics/
+curves/
+gradcam/
+all_results.csv
+summary_aggregated.csv
+wilcoxon_n.csv
+mcnemar_pooled.csv
+superiority_table.csv
 
-Generated results include:
+Generated results:
 
- Accuracy, F1-score, Precision, Recall, AUC
- Confusion matrices (CSV and PNG)
- ROC curves (CSV and PNG)
- Training curves
- GradCAM visualisations
- Statistical comparisons
-
----
-
-## 8. Reproducibility
-
-The experiments are fully reproducible:
-
- Fixed seeds: 42, 43, 44, 45, 46
- Deterministic PyTorch configuration enabled
- Identical preprocessing and augmentation pipeline
- All model configurations defined within a single script
-
-Running the script once reproduces all reported results.
+* Accuracy, F1-score, Precision, Recall, AUC
+* Confusion matrices (CSV, PNG)
+* ROC curves (CSV, PNG)
+* Training curves
+* GradCAM visualisations
+* Statistical comparisons
 
 ---
 
-## 9. Hardware Requirements
+## 9. Reproducibility
 
- GPU recommended (NVIDIA CUDA-supported)
- Minimum: 8 GB VRAM (for batch size = 16)
+* Fixed seeds: 42, 43, 44, 45, 46
+* Deterministic PyTorch configuration enabled
+* Identical preprocessing and augmentation pipeline
+* All experiments executed from a single script
 
-Approximate runtime:
+Running the script reproduces all reported results.
 
- ## Runtime
+---
+
+## 10. Hardware
+
+Experiments were conducted on a Dell Alienware m16 laptop with:
+
+* GPU: NVIDIA GeForce RTX [model] ([VRAM] GB)
+* CPU: Intel Core [exact model name]
+* RAM: [amount] GB
+
+Training was performed using CUDA-enabled PyTorch.
+
+---
+
+## 11. Runtime
 
 The full experimental run (all models across all seeds) requires approximately 4 days on the specified hardware.
 
@@ -173,19 +184,18 @@ Runtime may vary depending on GPU capability.
 
 A single model run (one seed) typically takes several hours.
 
+---
+
+## 12. Notes
+
+* Only dataset paths need modification
+* No manual intervention is required after execution starts
+* Ensure correct folder naming and class labels
+* All outputs are automatically saved
 
 ---
 
-## 10. Notes
-
-Only dataset paths need modification before execution
- No manual intervention is required after starting the script
- Ensure correct folder naming and class labels
- Outputs are automatically saved and organised
-
----
-
-## 11. Citation
+## 13. Citation
 
 If you use this code, cite:
 
@@ -193,12 +203,12 @@ If you use this code, cite:
 
 ---
 
-## 12. Contact
+## 14. Contact
 
-For issues related to reproduction, ensure:
+Before reporting issues, ensure:
 
- Dataset structure matches Section 4
- Paths are correctly set
- Dependencies are installed
+* Dataset structure matches Section 4
+* Paths are correctly configured
+* Dependencies are installed
 
-No additional configuration is required beyond what is described above.
+No additional configuration is required.
