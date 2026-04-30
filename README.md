@@ -69,7 +69,7 @@ Each class folder must contain the corresponding MRI images.
 
 ## 5. Configuration
 
-Open `SMVIB_main.py` and update:
+Open `TCDA.py` and update:
 
 ```python
 TRAIN_PATH = "path_to/Training/"   
