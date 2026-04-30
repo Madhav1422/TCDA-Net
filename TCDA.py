@@ -1,9 +1,9 @@
 # -*- coding: windows-1252 -*-
 # -*- coding: utf-8 -*-
 """
-SMVIB_main.py
+TCDA.py
 =============
-TCDA-Net v2 : geomeTry-Conditioned Differential Attention Network
+TCDA-Net  : geomeTry-Conditioned Differential Attention Network
 =================================================================
 Brain Tumour Classification — 4 classes
     glioma | meningioma | notumor | pituitary
