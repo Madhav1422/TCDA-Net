@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-This repository implements **TCDA-Net v2** for brain tumour classification using MRI images.
+This repository implements TCDA-Net  for brain tumour classification using MRI images.
 
 Classes:
 
