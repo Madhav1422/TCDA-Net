@@ -36,8 +36,7 @@ Two different datasets are used.
 Training dataset:
 
 * Source: Kaggle Brain Tumor MRI dataset
-* Link: https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset
-
+* Link: https://www.kaggle.com/datasets/mohamadabouali1/mri-brain-tumor-dataset-4-class-7023-images
 Testing dataset:
 
 * Source: Mendeley Brain Tumor dataset
