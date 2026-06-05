@@ -282,8 +282,7 @@ Results from ABL0 and ABL4 are directly reused from the baseline and full TCDA e
 Running Ablation Experiments
 
 The ablation study is executed through:
-
-python SMVIB_main_v3.py
+Ablations.py
 
 The script automatically:
 
@@ -294,3 +293,95 @@ Computes performance metrics, statistical tests, and ablation plots.
 Notes
 
 The ablation study presented in this repository follows a progressive integration design rather than a leave-one-out component removal strategy. The objective is to assess the cumulative contribution of the TCDA modules and the effect of progressively increasing geometric and attention-based modelling capacity.
+
+
+
+
+C) TCDA-Net Computational Complexity Benchmark
+---
+Overview
+
+This repository contains the computational complexity benchmarking script used to generate the results reported in Table 10 of the manuscript.
+
+The benchmark evaluates both baseline and TCDA-enhanced models and reports:
+
+Total parameters (M)
+Backbone parameters (M)
+Head + TCDA parameters (M)
+TCDA-only parameters (M)
+CPU inference latency (ms)
+GPU inference latency (ms)
+GPU peak memory consumption (MB)
+
+The evaluated architectures are:
+
+BASE_ResNet50
+BASE_DenseNet121
+BASE_MobileNetV3L
+BASE_ConvNeXtTiny
+TCDA_ResNet50
+TCDA_DenseNet121
+TCDA_MobileNetV3L
+TCDA_ConvNeXtTiny
+Environment
+
+Tested with:
+
+Python 3.10
+PyTorch 2.x
+timm
+numpy
+pandas
+fvcore (optional)
+
+Install dependencies:
+
+pip install torch torchvision timm numpy pandas fvcore
+Running the Benchmark
+
+Execute:
+
+python efficiency_benchmark.py
+
+The script automatically:
+
+Builds all baseline and TCDA models.
+Computes parameter counts.
+Measures CPU inference latency.
+Measures GPU inference latency.
+Measures GPU peak memory usage.
+Generates summary tables.
+Output Files
+
+Results are saved to:
+
+TCDA_2026_imp/
+
+Generated files:
+
+efficiency_results.csv
+efficiency_latency_detail.csv
+efficiency_summary.txt
+Notes on FLOP Profiling
+
+The benchmark attempts FLOP estimation using fvcore.
+
+However, the TCDA module contains custom geometry-based operations that may not be fully supported by standard FLOP profilers. Consequently, reliable FLOP estimates may not always be available. For this reason, the manuscript reports practical efficiency metrics including parameter count, inference latency, and memory consumption.
+
+Hardware
+
+Benchmarking was performed using:
+
+NVIDIA GeForce RTX 4060 (8 GB)
+Intel Core Ultra 9 185H
+16 GB RAM
+Reproducibility
+
+The benchmark uses:
+
+Fixed model definitions
+Input size: 224 × 224
+Warm-up runs: 50
+Timed runs: 200
+
+The generated outputs reproduce the computational complexity analysis reported in Table 10 of the manuscript.
