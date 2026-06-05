@@ -1,4 +1,4 @@
-# TCDA-Net: Geometry-Conditioned Differential Attention Network
+# A) TCDA-Net: Geometry-Conditioned Differential Attention Network
 
 ## 1. Overview
 
@@ -233,12 +233,15 @@ Before reporting issues, ensure:
 * Dependencies are installed
 
 No additional configuration is required.
----
 
 
 
 
-2. Ablation Study (Ablation.py)
+
+
+
+B) Ablation Study (Ablation.py)
+   ---
 
 The ablation experiments reported in the manuscript follow a progressive module integration strategy designed to evaluate the cumulative contribution of the proposed TCDA components.
 
