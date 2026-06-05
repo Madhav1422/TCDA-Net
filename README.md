@@ -233,7 +233,7 @@ Before reporting issues, ensure:
 * Dependencies are installed
 
 No additional configuration is required.
-
+---
 
 
 
