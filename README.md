@@ -233,3 +233,61 @@ Before reporting issues, ensure:
 * Dependencies are installed
 
 No additional configuration is required.
+
+
+
+
+
+2. Ablation Study (Ablation.py)
+
+The ablation experiments reported in the manuscript follow a progressive module integration strategy designed to evaluate the cumulative contribution of the proposed TCDA components.
+
+Ablation Configurations
+Configuration	Description
+ABL0	Baseline backbone with Global Average Pooling (GAP) and classification head only
+ABL1	ABL0 + Multi-scale Riesz-inspired geometric feature extraction
+ABL2	ABL1 + Channel-wise Differential Attention
+ABL3	ABL2 + Topology-inspired Gating
+ABL4	Full TCDA architecture including residual bypass pathway
+Implementation Details
+
+The ablation hierarchy follows the implementation described in the manuscript:
+
+ABL0 → ABL1 → ABL2 → ABL3 → ABL4
+
+where each subsequent configuration adds one additional TCDA component.
+
+Reused Configurations
+
+To ensure consistency with the main experiments:
+
+ABL0 corresponds exactly to the baseline model (BASE_*).
+ABL4 corresponds exactly to the full TCDA model (TCDA_*).
+
+Therefore, ABL0 and ABL4 are not retrained separately.
+
+Independently Trained Configurations
+
+The following intermediate ablation models are trained independently:
+
+ABL1
+ABL2
+ABL3
+
+Results from ABL0 and ABL4 are directly reused from the baseline and full TCDA experiments, respectively.
+
+Running Ablation Experiments
+
+The ablation study is executed through:
+
+python SMVIB_main_v3.py
+
+The script automatically:
+
+Trains ABL1, ABL2, and ABL3.
+Reuses the results of the baseline model as ABL0.
+Reuses the results of the full TCDA model as ABL4.
+Computes performance metrics, statistical tests, and ablation plots.
+Notes
+
+The ablation study presented in this repository follows a progressive integration design rather than a leave-one-out component removal strategy. The objective is to assess the cumulative contribution of the TCDA modules and the effect of progressively increasing geometric and attention-based modelling capacity.
